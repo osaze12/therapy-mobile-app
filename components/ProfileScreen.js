@@ -1,10 +1,10 @@
+import { StatusBar } from "expo-status-bar";
 import {
   Avatar,
   Box,
   Divider,
   Flex,
   ScrollView,
-  StatusBar,
   Text,
   View,
 } from "native-base";
@@ -71,7 +71,7 @@ function ProfileScreen() {
       </Box>
 
       <Box mb={5} mx={5} mt={5}>
-        <Text fontSize={20}>History</Text>
+        <Text fontSize={23}>History</Text>
         <Text style={{ fontFamily: "brevia-regular" }} fontSize={12}>
           Songs you've listened to
         </Text>
@@ -82,29 +82,33 @@ function ProfileScreen() {
         mx={5}
         showsVerticalScrollIndicator={false}
       >
-        {_LIST?.map(({ title, subTitle }, idx) => (
-          <Box key={idx} mb={_LIST.length === idx + 1 ? 91 : 5}>
-            <Text
-              color={"#000"}
-              fontSize={14}
-              style={{ fontFamily: "brevia-regular" }}
-            >
-              {title}
-            </Text>
-            <Text
-              mb={1}
-              style={{ fontFamily: "brevia-regular" }}
-              fontSize={10}
-              color={"grey"}
-            >
-              {subTitle}
-            </Text>
-            <Divider bg="#e4e4e4" />
-          </Box>
-        ))}
+        {_LIST?.map(HistoryListData)}
       </ScrollView>
     </View>
   );
 }
 
 export default ProfileScreen;
+
+export const HistoryListData = ({ title, subTitle }, idx) => {
+  return (
+    <Box key={idx} mb={_LIST.length === idx + 1 ? 91 : 5}>
+      <Text
+        color={"#000"}
+        fontSize={14}
+        style={{ fontFamily: "brevia-normal-bold" }}
+      >
+        {idx + 1}. {title}
+      </Text>
+      <Text
+        mb={1}
+        style={{ fontFamily: "brevia-regular" }}
+        fontSize={10}
+        color={"grey"}
+      >
+        {subTitle}
+      </Text>
+      <Divider bg="#e4e4e4" />
+    </Box>
+  );
+};

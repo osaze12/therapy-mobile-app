@@ -26,6 +26,7 @@ export default function App() {
 
     return null;
   }
+
   const theme = extendTheme({
     fontConfig: {
       "brevia-bold": {
@@ -66,7 +67,6 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={theme}>
-      {/* <View onLayout={onLayoutRootView}> */}
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -104,7 +104,6 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-      {/* </View> */}
     </NativeBaseProvider>
   );
 }
